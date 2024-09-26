@@ -1,0 +1,60 @@
+arie_levental,guyfussfeld
+319142055,207766973
+
+Answers (Q&A):
+
+Explain the way you chose to implement the 'trees' package, addressing the following points:
+- Detail the different classes you created in the package
+- Explain the relationships between the classes
+- Detail any specific design patterns you used
+
+============================================================================================
+
+Flora
+    - Description:
+        The 'Flora' class is designed to manage the generation, addition, and removal of trees within
+        a specified range on a game map.
+    - Relationships:
+        Tree: It manages a collection (mappedTrees) of trees (Tree objects) using a TreeMap where trees are
+        stored by their x-coordinate.
+    - Design Patterns:
+        Strategy Pattern: The BiConsumer<GameObject, Integer> functional interface is used to pass
+        strategies for adding/removing objects from the game environment (GameObjectCollection).
+        This allows flexibility in handling game object interactions and keep encapsulation.
+Tree
+    - Description:
+        Represents a tree with a trunk, leaves, and fruits. Manages the creation, addition, and removal of
+        these components within a game environment.
+        Implements the AvatarListener interface to respond to avatar interactions (jump specificly), and to
+        activate its components accordingly.
+    - Relationships:
+        Acts as a composite object that contains Trunk, Leaf, and Fruit components.
+        Implements the AvatarListener interface to interact with the avatar.
+    - Design Patterns:
+        Observer Pattern: Responds to avatar's jump events by implementing the AvatarListener interface.
+        (Composite Pattern - apparently:
+            https://www.geeksforgeeks.org/composite-design-pattern-in-java
+            "The Composite Design Pattern is a structural design pattern that lets you compose objects into
+            tree-like structures to represent part-whole hierarchies. It allows clients to treat individual
+            objects and compositions of objects uniformly. In other words, whether dealing with a single
+            object or a group of objects (composite), clients can use them interchangeably.")
+Trunk
+    - Description:
+        Represents a trunk of a tree, which is static and immovable.
+    - Relationships:
+        Managed by the Tree class as part of the tree's composite structure.
+Leaf
+    - Description:
+        Represents a leaf of a tree.
+        Holds a scheduled task to animate the leaf's movement independently from
+        the other leaves or tree components.
+    - Relationships:
+        Managed by the Tree class as part of the tree's composite structure.
+Fruit
+    - Description:
+        Represents a fruit of a tree.
+        The Fruit class ensures that fruits grant energy to the avatar upon collision and then respawn after
+        a delay, maintaining a dynamic interaction within the game world. Utilizes the Avatar tag to identify
+        collisions with the avatar, and schedules a task to respawn the fruit after a delay.
+    - Relationships
+        Managed by the Tree class as part of the tree's composite structure.
