@@ -1,4 +1,6 @@
-to add the DanoGameLab dependencies:
+a character in an interactive environmental area
+
+need to add the DanoGameLab dependencies in order to play:
 file->project_structure->modules->dependencies->+->jar->add src and DanoGameLab.jar
 
 Answers (Q&A):
