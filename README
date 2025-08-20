@@ -3,13 +3,6 @@ a character in an interactive environmental area
 need to add the DanoGameLab dependencies in order to play:
 file->project_structure->modules->dependencies->+->jar->DanoGameLab.jar
 
-Answers (Q&A):
-
-Explain the way you chose to implement the 'trees' package, addressing the following points:
-- Detail the different classes you created in the package
-- Explain the relationships between the classes
-- Detail any specific design patterns you used
-
 ============================================================================================
 
 Flora
