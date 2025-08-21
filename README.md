@@ -4,8 +4,8 @@ An interactive game featuring a character exploring an environmental area.
 The game world includes trees, leaves, and fruits that interact dynamically with the avatar.
 
 <p float="left">
-  <img src="images/Screenshot.jpeg" alt="screenshot" width="400" height="300"/>
-  <img src="images/Screenshot2.jpeg" alt="screenshot" width="400" height="300"/>
+  <img src="images/screenshot.jpeg" width="400" height="300"/>
+  <img src="images/screenshot2.jpeg" width="400" height="300"/>
 </p>
 
 ## 🎮 How to Play
