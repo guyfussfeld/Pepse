@@ -3,7 +3,7 @@
 An interactive game featuring a character exploring an environmental area.  
 The game world includes trees, leaves, and fruits that interact dynamically with the avatar.
 
----
+![](images/Screenshot.jpeg)
 
 ## 🎮 How to Play
 
