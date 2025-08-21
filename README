@@ -1,55 +1,87 @@
-a character in an interactive environmental area
+# Pepse Game
 
-need to add the DanoGameLab dependencies in order to play:
-file->project_structure->modules->dependencies->+->jar->DanoGameLab.jar
+An interactive game featuring a character exploring an environmental area.  
+The game world includes trees, leaves, and fruits that interact dynamically with the avatar.
 
-============================================================================================
+---
 
-Flora
-    - Description:
-        The 'Flora' class is designed to manage the generation, addition, and removal of trees within
-        a specified range on a game map.
-    - Relationships:
-        Tree: It manages a collection (mappedTrees) of trees (Tree objects) using a TreeMap where trees are
-        stored by their x-coordinate.
-    - Design Patterns:
-        Strategy Pattern: The BiConsumer<GameObject, Integer> functional interface is used to pass
-        strategies for adding/removing objects from the game environment (GameObjectCollection).
-        This allows flexibility in handling game object interactions and keep encapsulation.
-Tree
-    - Description:
-        Represents a tree with a trunk, leaves, and fruits. Manages the creation, addition, and removal of
-        these components within a game environment.
-        Implements the AvatarListener interface to respond to avatar interactions (jump specificly), and to
-        activate its components accordingly.
-    - Relationships:
-        Acts as a composite object that contains Trunk, Leaf, and Fruit components.
-        Implements the AvatarListener interface to interact with the avatar.
-    - Design Patterns:
-        Observer Pattern: Responds to avatar's jump events by implementing the AvatarListener interface.
-        (Composite Pattern - apparently:
-            https://www.geeksforgeeks.org/composite-design-pattern-in-java
-            "The Composite Design Pattern is a structural design pattern that lets you compose objects into
-            tree-like structures to represent part-whole hierarchies. It allows clients to treat individual
-            objects and compositions of objects uniformly. In other words, whether dealing with a single
-            object or a group of objects (composite), clients can use them interchangeably.")
-Trunk
-    - Description:
-        Represents a trunk of a tree, which is static and immovable.
-    - Relationships:
-        Managed by the Tree class as part of the tree's composite structure.
-Leaf
-    - Description:
-        Represents a leaf of a tree.
-        Holds a scheduled task to animate the leaf's movement independently from
-        the other leaves or tree components.
-    - Relationships:
-        Managed by the Tree class as part of the tree's composite structure.
-Fruit
-    - Description:
-        Represents a fruit of a tree.
-        The Fruit class ensures that fruits grant energy to the avatar upon collision and then respawn after
-        a delay, maintaining a dynamic interaction within the game world. Utilizes the Avatar tag to identify
-        collisions with the avatar, and schedules a task to respawn the fruit after a delay.
-    - Relationships
-        Managed by the Tree class as part of the tree's composite structure.
+## 🎮 How to Play
+
+Before running the game, you need to add the **DanoGameLab** dependency:  
+**File → Project Structure → Modules → Dependencies → + → JARs or directories → DanoGameLab.jar**
+
+Once added, run the main class to start the game.  
+Use the avatar to explore, jump, and interact with the environment.
+
+---
+
+## 🌳 Game Components
+
+### Flora
+- **Description:**  
+  Manages the generation, addition, and removal of trees within a specified range on the game map.  
+- **Relationships:**  
+  - Maintains a collection (`mappedTrees`) of `Tree` objects stored by their x-coordinate in a `TreeMap`.  
+- **Design Patterns:**  
+  - **Strategy Pattern:** Uses `BiConsumer<GameObject, Integer>` to pass strategies for adding/removing objects in the environment.  
+    This keeps the logic flexible and encapsulated.
+
+### Tree
+- **Description:**  
+  Represents a full tree with trunk, leaves, and fruits. Manages creation, addition, and removal of its parts.  
+  Implements the `AvatarListener` interface to respond to avatar actions (e.g., jumping).  
+- **Relationships:**  
+  - Composite object containing `Trunk`, `Leaf`, and `Fruit`.  
+  - Listens to avatar events via `AvatarListener`.  
+- **Design Patterns:**  
+  - **Observer Pattern:** Reacts to avatar jump events.  
+  - **Composite Pattern:** A tree is composed of multiple parts (trunk, leaves, fruits), all managed uniformly.  
+    > Reference: [Composite Pattern - GeeksforGeeks](https://www.geeksforgeeks.org/composite-design-pattern-in-java)
+
+### Trunk
+- **Description:**  
+  Represents the static, immovable trunk of a tree.  
+- **Relationships:**  
+  - Managed by the `Tree` class as part of the composite structure.
+
+### Leaf
+- **Description:**  
+  Represents a tree leaf.  
+  Each leaf has an independent scheduled task for animation, enabling natural swaying effects.  
+- **Relationships:**  
+  - Managed by the `Tree` class.  
+
+### Fruit
+- **Description:**  
+  Represents fruit that grants energy to the avatar upon collision.  
+  After being collected, it respawns after a delay, keeping interactions dynamic.  
+- **Relationships:**  
+  - Managed by the `Tree` class.  
+  - Uses the **Avatar** tag to detect collisions.  
+
+---
+
+## 🧩 Design Patterns Summary
+
+- **Strategy Pattern:** Flexible strategies for object management in `Flora`.  
+- **Observer Pattern:** Trees listen to avatar events.  
+- **Composite Pattern:** Trees are composed of multiple interchangeable parts (`Trunk`, `Leaf`, `Fruit`).  
+
+---
+
+## 📂 Suggested Project Layout
+
+```
+Pepse/
+  src/
+    Flora.java
+    Tree.java
+    Trunk.java
+    Leaf.java
+    Fruit.java
+  lib/
+    DanoGameLab.jar
+  README.md
+```
+
+---
