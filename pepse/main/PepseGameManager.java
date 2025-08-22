@@ -1,4 +1,4 @@
-package pepse;
+package pepse.main;
 
 import danogl.GameManager;
 import danogl.GameObject;
