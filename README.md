@@ -1,7 +1,6 @@
 # Pepse Game
 
 An interactive game featuring a character exploring an environmental area.  
-The game world includes trees, leaves, and fruits that interact dynamically with the avatar.
 
 <p float="left">
   <img src="images/screenshot1.jpeg" width="400" height="300"/>
